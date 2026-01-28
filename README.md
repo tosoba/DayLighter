@@ -7,6 +7,15 @@
 
 </div>
 
+<details>
+    <summary>Table of Contents</summary>
+    <ol>
+        <li><a href="#screenshots">Screenshots</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#used-technologies">Used technologies</a></li>
+    </ol>
+</details>
+
 ## Screenshots
 
 <p align="center" width="100%">
