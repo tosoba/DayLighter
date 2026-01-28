@@ -13,7 +13,7 @@
 <img src="screenshots/combined/day_chart.png" width="33%"><img src="screenshots/combined/light_dark.png" width="33%"><img src="screenshots/combined/locations.png" width="33%"><img src="screenshots/combined/widgets.png" width="33%"><img src="screenshots/combined/multi_device.png" width="66%">
 </p>
 
-### Features
+## Features
 
 - Dusk/dawn phases <b>chart</b>
 - <b>Location customization</b> with geocoding support
