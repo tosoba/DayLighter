@@ -1,11 +1,10 @@
-<div align="center">
+<div style="text-align: center;">
   <img src="screenshots/combined/top_banner.png">
 
 ## About
-
-<b><i>DayLighter</i></b> is a Material 3 themed android app for tracking <b>dusk/dawn phases</b> as well as <b>golden/blue hours</b>.
-
 </div>
+
+**_DayLighter_** is a Material 3 themed android app for tracking **dusk/dawn phases** as well as **golden/blue hours**.
 
 <details>
     <summary>Table of Contents</summary>
@@ -18,15 +17,15 @@
 
 ## Screenshots
 
-<p align="center" width="100%">
+<p style="text-align: center; width: 100%;">
 <img src="screenshots/combined/day_chart.png" width="33%"><img src="screenshots/combined/light_dark.png" width="33%"><img src="screenshots/combined/locations.png" width="33%"><img src="screenshots/combined/widgets.png" width="33%"><img src="screenshots/combined/multi_device.png" width="66%">
 </p>
 
 ## Features
 
-- Dusk/dawn phases <b>chart</b>
-- <b>Location customization</b> with geocoding support
-- Automatically updated <b>home screen widgets</b>
+- Dusk/dawn phases **chart**
+- **Location customization** with geocoding support
+- Automatically updated **home screen widgets**
 
 ## Used technologies
 
