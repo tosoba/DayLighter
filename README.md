@@ -1,9 +1,8 @@
 <div style="text-align: center;">
   <img src="screenshots/combined/top_banner.png">
-
-## About
 </div>
 
+## About
 **_DayLighter_** is a Material 3 themed android app for tracking **dusk/dawn phases** as well as **golden/blue hours**.
 
 <details>
@@ -16,19 +15,16 @@
 </details>
 
 ## Screenshots
-
 <p style="text-align: center; width: 100%; line-height: 0; font-size: 0;">
 <img src="screenshots/combined/day_chart.png" width="50%" style="vertical-align: bottom;"><img src="screenshots/combined/light_dark.png" width="50%" style="vertical-align: bottom;"><img src="screenshots/combined/locations.png" width="50%" style="vertical-align: bottom;"><img src="screenshots/combined/widgets.png" width="50%" style="vertical-align: bottom;"><img src="screenshots/combined/multi_device.png" width="100%" style="vertical-align: bottom;">
 </p>
 
 ## Features
-
 - Dusk/dawn phases **chart**
 - **Location customization** with geocoding support
 - Automatically updated **home screen widgets**
 
 ## Used technologies
-
 - [Jetpack Navigation (aka "Navigation 2")](https://developer.android.com/jetpack/androidx/releases/navigation) - screen flows definition, backstack management 
 - [Room](https://developer.android.com/jetpack/androidx/releases/room) - database for on-device location storage
 - [Datastore](https://developer.android.com/jetpack/androidx/releases/datastore) - user preference storage
