@@ -27,7 +27,7 @@ jobs:
       run: ./gradlew :core:domain:test
 
     - name: Upload APK
-      uses: actions/upload-artifact@v6.0.0
+      uses: actions/upload-artifact@v7.0.1
       with:
         name: DayLighter-dev
         path: ./app/build/outputs/apk/dev/debug/app-dev-debug.apk
