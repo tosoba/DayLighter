@@ -1,7 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 import com.trm.daylighter.configureFlavors
-import com.trm.daylighter.configureGradleManagedDevices
 import com.trm.daylighter.configureKotlinAndroid
 import com.trm.daylighter.configurePrintApksTask
 import org.gradle.api.Plugin
@@ -20,7 +19,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
         configureKotlinAndroid(this)
         defaultConfig.targetSdk = 36
         configureFlavors(this)
-        configureGradleManagedDevices(this)
       }
       extensions.configure<ApplicationAndroidComponentsExtension> { configurePrintApksTask(this) }
     }

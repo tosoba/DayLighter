@@ -36,10 +36,6 @@ gradlePlugin {
       id = "daylighter.android.application"
       implementationClass = "AndroidApplicationConventionPlugin"
     }
-    register("androidApplicationJacoco") {
-      id = "daylighter.android.application.jacoco"
-      implementationClass = "AndroidApplicationJacocoConventionPlugin"
-    }
     register("androidLibraryCompose") {
       id = "daylighter.android.library.compose"
       implementationClass = "AndroidLibraryComposeConventionPlugin"
@@ -51,10 +47,6 @@ gradlePlugin {
     register("androidFeature") {
       id = "daylighter.android.feature"
       implementationClass = "AndroidFeatureConventionPlugin"
-    }
-    register("androidLibraryJacoco") {
-      id = "daylighter.android.library.jacoco"
-      implementationClass = "AndroidLibraryJacocoConventionPlugin"
     }
     register("androidTest") {
       id = "daylighter.android.test"

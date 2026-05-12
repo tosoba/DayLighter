@@ -1,5 +1,4 @@
 import com.android.build.gradle.TestExtension
-import com.trm.daylighter.configureGradleManagedDevices
 import com.trm.daylighter.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -16,7 +15,6 @@ class AndroidTestConventionPlugin : Plugin<Project> {
       extensions.configure<TestExtension> {
         configureKotlinAndroid(this)
         defaultConfig.targetSdk = 36
-        configureGradleManagedDevices(this)
       }
     }
   }
