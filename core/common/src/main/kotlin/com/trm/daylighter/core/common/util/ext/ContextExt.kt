@@ -12,12 +12,17 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.*
+import com.google.android.gms.location.CurrentLocationRequest
+import com.google.android.gms.location.Granularity
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationSettingsRequest
+import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
-import com.trm.daylighter.core.common.R as commonR
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.tasks.await
+import kotlin.coroutines.resume
+import com.trm.daylighter.core.common.R as commonR
 
 fun Context.goToUrlInBrowser(url: String) {
   try {
@@ -45,7 +50,7 @@ fun Context.checkPermissions(
 }
 
 suspend fun Context.checkLocationSettings(): CheckLocationSettingsResult =
-  suspendCoroutine { continuation ->
+  suspendCancellableCoroutine { continuation ->
     LocationServices.getSettingsClient(this)
       .checkLocationSettings(
         LocationSettingsRequest.Builder()
