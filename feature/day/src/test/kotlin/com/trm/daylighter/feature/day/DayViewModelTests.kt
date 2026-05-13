@@ -24,18 +24,18 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
-import java.time.LocalDate
-import java.time.LocalTime
-import java.time.ZoneId
-import kotlin.random.Random
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertIs
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
+import org.junit.Test
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.ZoneId
+import kotlin.random.Random
+import kotlin.test.assertEquals
+import kotlin.test.assertIs
 
 class DayViewModelTests {
   @get:Rule val mainDispatcherRule = MainDispatcherRule()
