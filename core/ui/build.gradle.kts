@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-  android { namespace = "com.trm.daylighter.core.ui" }
+  namespace = "com.trm.daylighter.core.ui"
 
   defaultConfig { testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" }
 }

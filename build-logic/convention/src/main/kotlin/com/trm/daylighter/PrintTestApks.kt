@@ -4,7 +4,7 @@ import com.android.build.api.artifact.SingleArtifact
 import com.android.build.api.variant.AndroidComponentsExtension
 import com.android.build.api.variant.BuiltArtifactsLoader
 import com.android.build.api.variant.HasAndroidTest
-import java.io.File
+import com.android.build.api.variant.Variant
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
 import org.gradle.api.file.Directory
@@ -16,27 +16,30 @@ import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
+import java.io.File
 
 internal fun Project.configurePrintApksTask(extension: AndroidComponentsExtension<*, *, *>) {
-  extension.onVariants { variant ->
-    if (variant is HasAndroidTest) {
-      val loader = variant.artifacts.getBuiltArtifactsLoader()
-      val artifact = variant.androidTest?.artifacts?.get(SingleArtifact.APK)
-      val javaSources = variant.androidTest?.sources?.java?.all
-      val kotlinSources = variant.androidTest?.sources?.kotlin?.all
+  extension.onVariants { variant -> configurePrintApksTaskForVariant(variant) }
+}
 
-      val testSources =
-        if (javaSources != null && kotlinSources != null) {
-          javaSources.zip(kotlinSources) { javaDirs, kotlinDirs -> javaDirs + kotlinDirs }
-        } else javaSources ?: kotlinSources
+private fun Project.configurePrintApksTaskForVariant(variant: Variant) {
+  if (variant is HasAndroidTest) {
+    val loader = variant.artifacts.getBuiltArtifactsLoader()
+    val artifact = variant.androidTest?.artifacts?.get(SingleArtifact.APK)
+    val javaSources = variant.androidTest?.sources?.java?.all
+    val kotlinSources = variant.androidTest?.sources?.kotlin?.all
 
-      if (artifact != null && testSources != null) {
-        tasks.register("${variant.name}PrintTestApk", PrintApkLocationTask::class.java) {
-          apkFolder.set(artifact)
-          builtArtifactsLoader.set(loader)
-          variantName.set(variant.name)
-          sources.set(testSources)
-        }
+    val testSources =
+      if (javaSources != null && kotlinSources != null) {
+        javaSources.zip(kotlinSources) { javaDirs, kotlinDirs -> javaDirs + kotlinDirs }
+      } else javaSources ?: kotlinSources
+
+    if (artifact != null && testSources != null) {
+      tasks.register("${variant.name}PrintTestApk", PrintApkLocationTask::class.java) {
+        apkFolder.set(artifact)
+        builtArtifactsLoader.set(loader)
+        variantName.set(variant.name)
+        sources.set(testSources)
       }
     }
   }

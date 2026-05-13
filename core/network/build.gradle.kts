@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-  android { namespace = "com.trm.daylighter.core.network" }
+  namespace = "com.trm.daylighter.core.network"
 
   buildFeatures { buildConfig = true }
 

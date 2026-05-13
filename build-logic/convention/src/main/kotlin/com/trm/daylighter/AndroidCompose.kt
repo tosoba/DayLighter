@@ -1,6 +1,8 @@
 package com.trm.daylighter
 
+import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
+import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
@@ -9,11 +11,14 @@ import org.gradle.kotlin.dsl.withType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /** Configure Compose-specific options */
-internal fun Project.configureAndroidCompose(commonExtension: CommonExtension<*, *, *, *, *, *>) {
+internal fun Project.configureAndroidCompose(commonExtension: CommonExtension) {
   val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
   commonExtension.apply {
-    buildFeatures { compose = true }
+    when (this) {
+      is ApplicationExtension -> buildFeatures.compose = true
+      is LibraryExtension -> buildFeatures.compose = true
+    }
 
     tasks.withType<KotlinCompile>().configureEach {
       compilerOptions { freeCompilerArgs.addAll(buildComposeMetricsParameters()) }

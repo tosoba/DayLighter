@@ -1,4 +1,4 @@
-import com.android.build.gradle.TestExtension
+import com.android.build.api.dsl.TestExtension
 import com.trm.daylighter.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -9,7 +9,6 @@ class AndroidTestConventionPlugin : Plugin<Project> {
     with(target) {
       with(pluginManager) {
         apply("com.android.test")
-        apply("org.jetbrains.kotlin.android")
       }
 
       extensions.configure<TestExtension> {

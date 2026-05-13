@@ -1,6 +1,9 @@
 package com.trm.daylighter
 
+import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
+import com.android.build.api.dsl.LibraryExtension
+import com.android.build.api.dsl.TestExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -12,16 +15,31 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /** Configure base Kotlin with Android options */
-internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension<*, *, *, *, *, *>) {
-  commonExtension.apply {
-    compileSdk = 36
+internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension) {
+  commonExtension.compileSdk = 36
+  commonExtension.defaultConfig.minSdk = 26
 
-    defaultConfig { minSdk = 26 }
-
-    compileOptions {
-      sourceCompatibility = JavaVersion.VERSION_21
-      targetCompatibility = JavaVersion.VERSION_21
-      isCoreLibraryDesugaringEnabled = true
+  when (commonExtension) {
+    is ApplicationExtension -> {
+      commonExtension.compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+        isCoreLibraryDesugaringEnabled = true
+      }
+    }
+    is LibraryExtension -> {
+      commonExtension.compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+        isCoreLibraryDesugaringEnabled = true
+      }
+    }
+    is TestExtension -> {
+      commonExtension.compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+        isCoreLibraryDesugaringEnabled = true
+      }
     }
   }
 

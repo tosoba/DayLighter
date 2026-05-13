@@ -34,7 +34,6 @@ android {
         // TODO: Abstract the signing configuration to a separate file to avoid hardcoding this.
         signingConfig = signingConfigs.getByName("debug")
         // Ensure Baseline Profile is fresh for release builds.
-        baselineProfile.automaticGenerationDuringBuild = true
       }
     create("benchmark") {
       // Enable all the optimizations from release build through initWith(release).
