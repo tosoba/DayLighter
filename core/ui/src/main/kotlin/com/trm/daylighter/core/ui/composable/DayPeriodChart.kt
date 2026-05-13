@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.PaintingStyle
 import androidx.compose.ui.graphics.PathEffect
+import androidx.compose.ui.graphics.nativePaint
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
@@ -231,7 +232,7 @@ private fun DrawScope.drawChartSegments(chartSegments: List<DayChartSegment>) {
             style = PaintingStyle.Stroke
             strokeWidth = 50f
           }
-        paint.asFrameworkPaint().apply {
+        paint.nativePaint.apply {
           color = segment.color.copy(alpha = 0f).toArgb()
           setShadowLayer(40f, 0f, 0f, segment.color.copy(alpha = .75f).toArgb())
         }
@@ -835,7 +836,7 @@ private fun DrawScope.drawNowLine(
           style = PaintingStyle.Stroke
           strokeWidth = 10f
         }
-      paint.asFrameworkPaint().apply {
+      paint.nativePaint.apply {
         color = nowLineColor.copy(alpha = 0f).toArgb()
         setShadowLayer(10f, 0f, 0f, nowLineColor.copy(alpha = .75f).toArgb())
       }
