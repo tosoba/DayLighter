@@ -57,7 +57,6 @@ internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension) {
         // Enable experimental coroutines APIs, including Flow
         "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
         "-opt-in=kotlinx.coroutines.FlowPreview",
-        "-opt-in=kotlin.Experimental",
       )
 
       jvmTarget.set(JvmTarget.JVM_21)
