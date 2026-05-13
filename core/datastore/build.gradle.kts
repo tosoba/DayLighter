@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-  defaultConfig { consumerProguardFiles("consumer-proguard-rules.pro") }
+  defaultConfig { consumerProguardFiles("consumer-rules.pro") }
   namespace = "com.trm.daylighter.core.datastore"
 }
 
