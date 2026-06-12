@@ -30,7 +30,6 @@ import androidx.compose.material.icons.filled.PhotoCamera
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
@@ -59,7 +58,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.trm.daylighter.core.common.R as commonR
 import com.trm.daylighter.core.common.model.MapDefaults
 import com.trm.daylighter.core.domain.model.Empty
 import com.trm.daylighter.core.domain.model.Loadable
@@ -83,6 +81,7 @@ import com.trm.daylighter.core.ui.theme.backgroundToTransparentVerticalGradient
 import com.trm.daylighter.core.ui.util.ext.fullWidthSpan
 import com.trm.daylighter.core.ui.util.usingPermanentNavigationDrawer
 import kotlinx.coroutines.flow.collectLatest
+import com.trm.daylighter.core.common.R as commonR
 
 const val widgetLocationRoute = "widget_location_route"
 
@@ -123,7 +122,6 @@ fun WidgetLocationRoute(
   }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun WidgetLocationScreen(
   locations: Loadable<List<StableValue<Location>>>,

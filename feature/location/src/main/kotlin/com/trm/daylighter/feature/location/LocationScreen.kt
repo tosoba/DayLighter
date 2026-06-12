@@ -81,7 +81,6 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.app.ActivityCompat
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.trm.daylighter.core.common.R as commonR
 import com.trm.daylighter.core.common.util.ext.CheckLocationSettingsResult
 import com.trm.daylighter.core.common.util.ext.checkLocationSettings
 import com.trm.daylighter.core.common.util.ext.checkPermissions
@@ -105,6 +104,7 @@ import com.trm.daylighter.feature.location.util.restorePosition
 import com.trm.daylighter.feature.location.util.setDefaultConfig
 import org.osmdroid.views.MapView
 import timber.log.Timber
+import com.trm.daylighter.core.common.R as commonR
 
 const val locationRoute = "location_route"
 const val locationIdParam = "location_id"
@@ -416,7 +416,6 @@ private fun LocationInfoDialog(onDismissRequest: () -> Unit) {
   )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun LocationAppBar(
   mapPosition: MapPosition,

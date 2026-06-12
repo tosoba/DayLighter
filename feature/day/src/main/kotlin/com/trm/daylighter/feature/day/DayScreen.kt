@@ -29,7 +29,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -85,7 +84,6 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.trm.daylighter.core.common.R as commonR
 import com.trm.daylighter.core.common.model.DayMode
 import com.trm.daylighter.core.common.model.DayPeriod
 import com.trm.daylighter.core.common.util.ext.currentDayMode
@@ -126,15 +124,17 @@ import com.trm.daylighter.core.ui.util.ext.color
 import com.trm.daylighter.core.ui.util.ext.textColor
 import com.trm.daylighter.core.ui.util.ext.textShadowColor
 import com.trm.daylighter.core.ui.util.usingPermanentNavigationDrawer
-import java.time.LocalTime
-import java.time.ZoneId
-import java.time.ZonedDateTime
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.isActive
+import java.time.LocalTime
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import kotlin.time.Duration.Companion.milliseconds
+import com.trm.daylighter.core.common.R as commonR
 
 const val dayNightCycleRoute = "day_night_cycle_route"
 const val goldenBlueHourRoute = "golden_blue_hour_route"
@@ -171,7 +171,6 @@ private val usingNavigationBar: Boolean
     LocalWidthSizeClass.current == WindowWidthSizeClass.Compact ||
       LocalHeightSizeClass.current == WindowHeightSizeClass.Expanded
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun DayScreen(
   chartMode: DayPeriodChartMode,
@@ -508,7 +507,6 @@ private fun EditLocationButton(onClick: () -> Unit, modifier: Modifier = Modifie
   }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun DayTopAppBar(
   change: StableLoadable<LocationSunriseSunsetChange>,
@@ -672,10 +670,10 @@ private fun NextDayPeriodTimer(
       nextPeriod?.let {
         LaunchedEffect(dayPeriod, today) {
           flow {
-              delay(System.currentTimeMillis() % 1_000L)
+              delay((System.currentTimeMillis() % 1_000L).milliseconds)
               while (currentCoroutineContext().isActive) {
                 emit(buildNextPeriodInText(it))
-                delay(1_000L)
+                delay(1_000L.milliseconds)
               }
             }
             .collect { text -> timerText = text }

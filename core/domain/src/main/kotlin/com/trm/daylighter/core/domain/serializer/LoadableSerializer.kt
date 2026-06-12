@@ -1,13 +1,23 @@
 package com.trm.daylighter.core.domain.serializer
 
-import com.trm.daylighter.core.domain.model.*
-import kotlinx.serialization.*
+import com.trm.daylighter.core.domain.model.Empty
+import com.trm.daylighter.core.domain.model.Failed
+import com.trm.daylighter.core.domain.model.FailedFirst
+import com.trm.daylighter.core.domain.model.FailedNext
+import com.trm.daylighter.core.domain.model.Loadable
+import com.trm.daylighter.core.domain.model.LoadingFirst
+import com.trm.daylighter.core.domain.model.LoadingNext
+import com.trm.daylighter.core.domain.model.Ready
+import com.trm.daylighter.core.domain.model.WithData
+import kotlinx.serialization.EncodeDefault
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.descriptors.SerialDescriptor
 import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
 class LoadableSerializer<T : Any>(valueSerializer: KSerializer<T>) : KSerializer<Loadable<T>> {
-  @OptIn(ExperimentalSerializationApi::class)
   @Serializable
   @SerialName("ServiceResult")
   data class LoadableSurrogate<T : Any>(
