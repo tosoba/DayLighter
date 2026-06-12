@@ -10,7 +10,7 @@ plugins {
 
 android {
   namespace = "com.trm.daylighter"
-  compileSdk = 36
+  compileSdk = 37
 
   defaultConfig {
     applicationId = "com.trm.daylighter"
