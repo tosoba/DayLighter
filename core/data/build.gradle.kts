@@ -28,5 +28,5 @@ dependencies {
   implementation("us.dustinj.timezonemap:timezonemap:4.5") {
     exclude(group = "com.github.luben", module = "zstd-jni")
   }
-  implementation("com.github.luben:zstd-jni:1.5.7-8@aar")
+  implementation("com.github.luben:zstd-jni:1.5.7-10@aar")
 }
