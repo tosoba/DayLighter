@@ -22,22 +22,22 @@ internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension) {
   when (commonExtension) {
     is ApplicationExtension -> {
       commonExtension.compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
         isCoreLibraryDesugaringEnabled = true
       }
     }
     is LibraryExtension -> {
       commonExtension.compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
         isCoreLibraryDesugaringEnabled = true
       }
     }
     is TestExtension -> {
       commonExtension.compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
         isCoreLibraryDesugaringEnabled = true
       }
     }
@@ -59,7 +59,7 @@ internal fun Project.configureKotlinAndroid(commonExtension: CommonExtension) {
         "-opt-in=kotlinx.coroutines.FlowPreview",
       )
 
-      jvmTarget.set(JvmTarget.JVM_21)
+      jvmTarget.set(JvmTarget.JVM_25)
     }
   }
 
